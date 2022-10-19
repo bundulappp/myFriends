@@ -11,7 +11,7 @@ const swaggerOptions: SwaggerOptions = {
     },
     servers: [`${config.servers.host}:${config.servers.port}`],
   },
-  apis: ['./src/routes/api.routes.ts'],
+  apis: ['./src/routes/api.routes.ts', './src/routes/friends.routes.ts'],
 };
 
 export const swaggerDocs = swaggerJSDoc(swaggerOptions);

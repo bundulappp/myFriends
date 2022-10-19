@@ -2,7 +2,7 @@ import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewMo
 import { NextFunction, Request, Response } from 'express';
 import { AddFriendViewModel } from '../models/view/AddFriendViewModel';
 import { badRequestError } from '../services/generalErrorService';
-import { friendService } from '../services/friendService';
+import { friendService } from '../services/friendsService';
 
 export const friendController = {
   async addNewFriend(
@@ -12,12 +12,27 @@ export const friendController = {
   ) {
     const { name, email, comment, favFood, relationshipStatus } = req.body;
 
-    if (!name || !email || !comment || !favFood || !relationshipStatus) {
+    if (!name || !email || !favFood || !relationshipStatus) {
       return next(
         badRequestError(
-          'name, description, image URL and price are all required!',
+          'name, email, favoriteFood and relationshipStatus are all required!',
         ),
       );
+    }
+
+    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+      next(badRequestError('Must use a valid email address'));
+      return;
+    }
+
+    if (name.length < 4) {
+      next(badRequestError('Name must be at least 4 characters.'));
+      return;
+    }
+
+    if (comment.length > 30) {
+      next(badRequestError('Comment can not be longer than 30 characters.'));
+      return;
     }
 
     const friendDetails = {

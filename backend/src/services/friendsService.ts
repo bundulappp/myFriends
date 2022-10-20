@@ -22,4 +22,12 @@ export const friendService = {
 
     await friendRepository.editFriendById(friendDetails);
   },
+
+  async deleteFriend(friendId: number): Promise<void> {
+    if (!(await friendRepository.getFriendById(friendId))) {
+      throw notFoundError('Cannot delete friend, friendId not found in db!');
+    }
+
+    await friendRepository.deleteFriend(friendId);
+  },
 };

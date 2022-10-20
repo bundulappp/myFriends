@@ -12,7 +12,11 @@ export const friendRepository = {
             WHERE
               id=?`;
 
-    return db.query<FriendDomainModel>(query, [friendId.toString()]);
+    const friendList = await db.query<FriendDomainModel[]>(query, [
+      friendId.toString(),
+    ]);
+
+    return friendList[0];
   },
 
   async addNewFriend(

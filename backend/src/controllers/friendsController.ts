@@ -5,6 +5,7 @@ import { badRequestError } from '../services/generalErrorService';
 import { friendService } from '../services/friendsService';
 import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
+import { foodService } from '../services/foodsService';
 
 export const friendController = {
   async getAllFriends(
@@ -60,6 +61,7 @@ export const friendController = {
 
     try {
       const friendId = await friendService.addNewFriend(friendDetails);
+      await foodService.addNewFood({ favFood, friendId });
       res.status(201).send({ friendId });
     } catch (err) {
       next(err);

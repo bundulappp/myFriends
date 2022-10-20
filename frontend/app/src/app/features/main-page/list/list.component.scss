@@ -1,0 +1,29 @@
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 100px;
+
+  .table {
+    padding-top: 20px;
+    width: 80%;
+    background: linear-gradient(
+      45deg,
+      rgb(221, 230, 225),
+      rgba(131, 177, 236, 0.473) 60%
+    );
+  }
+
+  .mat-column-name {
+    font-style: italic;
+  }
+
+  .button-container {
+    width: 10%;
+    height: 10%;
+    padding-top: 20px;
+
+    button {
+      color: rgb(81, 164, 212);
+    }
+  }
+}

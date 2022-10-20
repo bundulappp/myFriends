@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { MainPageComponent } from './main-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-  declarations: [MainPageComponent],
+  declarations: [MainPageComponent, ListComponent],
   imports: [CommonModule, MainPageRoutingModule, SharedModule],
 })
 export class MainPageModule {}

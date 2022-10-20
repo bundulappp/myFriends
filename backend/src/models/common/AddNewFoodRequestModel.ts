@@ -1,4 +1,4 @@
 export interface AddNewFoodRequestModel {
-  name: string;
+  favFood: string;
   friendId: number;
 }

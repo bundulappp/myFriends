@@ -43,7 +43,7 @@ friendsRouter.get('', friendController.getAllFriends);
  *                  example: he likes his dog very much
  *                favFood:
  *                  type: string
- *                  example: dog food
+ *                  example: Pizza
  *                relationshipStatus:
  *                  type: number
  *                  example: 1

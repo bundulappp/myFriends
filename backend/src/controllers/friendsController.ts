@@ -113,4 +113,18 @@ export const friendController = {
       next(err);
     }
   },
+
+  async deleteFriend(
+    req: Request<EditFriendRequestModel>,
+    res: Response,
+    next: NextFunction,
+  ) {
+    const { friendId } = req.body;
+    try {
+      await friendService.deleteFriend(friendId);
+      res.status(200).send();
+    } catch (err) {
+      next(err);
+    }
+  },
 };

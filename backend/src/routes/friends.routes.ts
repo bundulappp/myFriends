@@ -6,6 +6,21 @@ const friendsRouter = express.Router();
 /**
  * @swagger
  * /api/friends:
+ *  get:
+ *      tags:
+ *      - FRIENDS
+ *      description: Get all Friends
+ *      responses:
+ *          200:
+ *              description: Data provided
+ *          500:
+ *              description: Internal server error
+ */
+friendsRouter.get('', friendController.getAllFriends);
+
+/**
+ * @swagger
+ * /api/friends:
  *  post:
  *      tags:
  *      - FRIENDS

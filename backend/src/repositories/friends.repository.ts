@@ -5,6 +5,14 @@ import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 
 export const friendRepository = {
+  async getAllFriends(): Promise<FriendDomainModel[]> {
+    const query = `SELECT * 
+                 FROM
+                  friends`;
+
+    return await db.query<FriendDomainModel[]>(query);
+  },
+
   async getFriendById(friendId: number): Promise<FriendDomainModel> {
     const query = `SELECT *
             FROM

@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -16,6 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatTableModule,
   ],
   exports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatTableModule,
   ],
 })
 export class SharedModule {}

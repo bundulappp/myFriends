@@ -101,4 +101,31 @@ friendsRouter.post('', friendController.addNewFriend);
  */
 friendsRouter.put('', friendController.editFriend);
 
+/**
+ * @swagger
+ * /api/friends:
+ *  delete:
+ *      tags:
+ *      - FRIENDS
+ *      description: Delete a Friend from the list
+ *      parameters:
+ *          - in: body
+ *            name: friendDetails
+ *            description: Provide the necessary details
+ *            schema:
+ *              type: object
+ *              properties:
+ *                friendId:
+ *                  type: number
+ *                  example: 1
+ *      responses:
+ *          200:
+ *              description: Friend deleted from the list
+ *          404:
+ *              description: Friend is not found
+ *          500:
+ *              description: Internal server error
+ */
+friendsRouter.delete('', friendController.deleteFriend);
+
 export default friendsRouter;

@@ -1,9 +1,14 @@
 import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
+import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 import { friendRepository } from '../repositories/friends.repository';
 import { notFoundError } from './generalErrorService';
 
 export const friendService = {
+  async getAllFriends(): Promise<FriendDomainModel[]> {
+    return await friendRepository.getAllFriends();
+  },
+
   async addNewFriend(friendDetail: AddFriendRequestViewModel): Promise<number> {
     return await friendRepository.addNewFriend(friendDetail);
   },

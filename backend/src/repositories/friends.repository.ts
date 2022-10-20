@@ -60,7 +60,7 @@ export const friendRepository = {
                 relationshipStatus=?
               WHERE
                 id=?`;
-    await db.query(query, [
+    await db.query<void>(query, [
       friendDetails.name,
       friendDetails.email,
       friendDetails.comment,
@@ -68,5 +68,15 @@ export const friendRepository = {
       friendDetails.relationshipStatus.toString(),
       friendDetails.friendId.toString(),
     ]);
+  },
+
+  async deleteFriend(friendId: number): Promise<void> {
+    const query = `DELETE 
+                   FROM 
+                    friends 
+                   WHERE 
+                    id = ?`;
+
+    await db.query<void>(query, [friendId.toString()]);
   },
 };

@@ -14,8 +14,7 @@ export const friendController = {
   ) {
     try {
       const friendsList = await friendService.getAllFriends();
-
-      res.sendStatus(200).send(friendsList);
+      res.status(200).send(friendsList);
     } catch (err) {
       next(err);
     }
@@ -61,7 +60,7 @@ export const friendController = {
 
     try {
       const friendId = await friendService.addNewFriend(friendDetails);
-      res.sendStatus(201).send({ friendId });
+      res.status(201).send({ friendId });
     } catch (err) {
       next(err);
     }
@@ -109,7 +108,7 @@ export const friendController = {
 
     try {
       await friendService.editFriend(requestData);
-      res.sendStatus(200).send();
+      res.status(200).send();
     } catch (err) {
       next(err);
     }

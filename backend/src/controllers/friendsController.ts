@@ -1,15 +1,26 @@
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 import { NextFunction, Request, Response } from 'express';
 import { AddFriendViewModel } from '../models/view/AddFriendViewModel';
-import {
-  badRequestError,
-  notFoundError,
-} from '../services/generalErrorService';
+import { badRequestError } from '../services/generalErrorService';
 import { friendService } from '../services/friendsService';
 import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
-import { friendRepository } from '../repositories/friends.repository';
+import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 
 export const friendController = {
+  async getAllFriends(
+    req: Request,
+    res: Response<FriendDomainModel[]>,
+    next: NextFunction,
+  ) {
+    try {
+      const friendsList = await friendService.getAllFriends();
+
+      res.sendStatus(200).send(friendsList);
+    } catch (err) {
+      next(err);
+    }
+  },
+
   async addNewFriend(
     req: Request<AddFriendRequestViewModel>,
     res: Response<AddFriendViewModel>,
@@ -99,8 +110,8 @@ export const friendController = {
     try {
       await friendService.editFriend(requestData);
       res.sendStatus(200).send();
-    } catch (error) {
-      next(error);
+    } catch (err) {
+      next(err);
     }
   },
 };

@@ -1,9 +1,20 @@
 import { OkPacket } from 'mysql';
 import { db } from '../data/connection';
-import { RelationshipStatusTypes } from '../models/enums/RelationshipStatusTypes';
+import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
+import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 
 export const friendRepository = {
+  async getFriendById(friendId: number): Promise<FriendDomainModel> {
+    const query = `SELECT *
+            FROM
+              friends
+            WHERE
+              id=?`;
+
+    return db.query<FriendDomainModel>(query, [friendId.toString()]);
+  },
+
   async addNewFriend(
     friendDetails: AddFriendRequestViewModel,
   ): Promise<number> {
@@ -26,14 +37,7 @@ export const friendRepository = {
     return result.insertId;
   },
 
-  async editFriendById(
-    friendId: number,
-    name: string,
-    email: string,
-    comment: string,
-    favFood: string,
-    relationshipStatus: RelationshipStatusTypes,
-  ): Promise<void> {
+  async editFriendById(friendDetails: EditFriendRequestModel): Promise<void> {
     const query = `UPDATE
                 friends
               SET
@@ -45,12 +49,12 @@ export const friendRepository = {
               WHERE
                 id=?`;
     await db.query(query, [
-      name,
-      email,
-      comment,
-      favFood,
-      relationshipStatus.toString(),
-      friendId.toString(),
+      friendDetails.name,
+      friendDetails.email,
+      friendDetails.comment,
+      friendDetails.favFood,
+      friendDetails.relationshipStatus.toString(),
+      friendDetails.friendId.toString(),
     ]);
   },
 };

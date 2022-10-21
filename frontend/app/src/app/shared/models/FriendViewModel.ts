@@ -4,7 +4,7 @@ export interface FriendViewModel {
   id: number;
   name: string;
   email: string;
-  comment: string;
+  comment?: string;
   favFood: string;
-  relationshipStatus: RelationshipStatusTypes;
+  relationshipStatus: RelationshipStatusTypes | string;
 }

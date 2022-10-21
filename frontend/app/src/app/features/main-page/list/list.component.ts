@@ -18,11 +18,31 @@ export class ListComponent implements OnInit {
     'actions',
   ];
 
+  relationshipCategory = [
+    { name: 'single' },
+    { name: 'in relationship' },
+    { name: 'married' },
+  ];
+
   constructor(private friendsService: FriendsService) {}
 
   ngOnInit(): void {
-    this.friendsService.getAllFriends().subscribe((x) => {
-      this.friendList = x;
+    this.friendsService.getAllFriends().subscribe((friendList) => {
+      const modifiedFriendList: FriendViewModel[] = [];
+
+      friendList.forEach((x) => {
+        const modifiedFriend = {
+          id: x.id,
+          name: x.name,
+          email: x.email,
+          comment: x.comment,
+          favFood: x.favFood,
+          relationshipStatus:
+            this.relationshipCategory[x.relationshipStatus as number].name,
+        };
+        modifiedFriendList.push(modifiedFriend);
+      });
+      this.friendList = modifiedFriendList;
     });
   }
 }

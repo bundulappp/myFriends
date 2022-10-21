@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/core/services/friends.service';
+import { AddNewFriendRequestViewModel } from 'src/app/shared/models/AddNewFriendViewModel';
 
 @Component({
   selector: 'app-add',
@@ -30,7 +31,14 @@ export class AddComponent {
 
   constructor(private friendsService: FriendsService, private router: Router) {}
 
-  addFriend() {}
+  addFriend(): void {
+    if (this.form.valid) {
+      this.friendsService
+        .addNewFriend(this.form.getRawValue() as AddNewFriendRequestViewModel)
+        .subscribe();
+      console.log(this.form.getRawValue());
+    }
+  }
 
   back(): void {
     this.router.navigate(['/main']);

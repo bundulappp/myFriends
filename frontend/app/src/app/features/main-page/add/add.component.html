@@ -46,10 +46,7 @@
           food="food"
           formControlName="relationshipStatus"
         >
-          <mat-option
-            *ngFor="let cat of relationshipCategory"
-            [value]="cat.name"
-          >
+          <mat-option *ngFor="let cat of relationshipCategory" [value]="cat.id">
             {{ cat.name | titlecase }}
           </mat-option>
         </mat-select>

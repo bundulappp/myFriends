@@ -4,12 +4,16 @@ import { FriendViewModel } from 'src/app/shared/models/FriendViewModel';
 import { environment } from 'src/environments/environment';
 import { map, Observable, tap } from 'rxjs';
 import { AddNewFriendRequestViewModel } from 'src/app/shared/models/AddNewFriendViewModel';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FriendsService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private snackBarService: SnackbarService
+  ) {}
 
   getAllFriends(): Observable<FriendViewModel[]> {
     return this.http.get<FriendViewModel[]>(`${environment.apiUrl}/friends`);
@@ -21,6 +25,13 @@ export class FriendsService {
         `${environment.apiUrl}/friends`,
         newItemObject
       )
-      .pipe(map(() => undefined));
+      .pipe(
+        tap(() => {
+          this.snackBarService.showSuccessMessage(
+            'Adding new friend is successful!'
+          );
+        }),
+        map(() => undefined)
+      );
   }
 }

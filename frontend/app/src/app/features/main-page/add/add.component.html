@@ -1,1 +1,40 @@
-<p>add works!</p>
+<div class="main-container">
+  <h1 class="title">Add new Friend</h1>
+  <div class="form-container">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Comment</mat-label>
+        <input formControlName="comment" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Favorite food</mat-label>
+        <input formControlName="favFood" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Relationship status</mat-label>
+        <mat-select>
+          <mat-option> -- </mat-option>
+          <mat-option *ngFor="let cat of relationshipStatus" [value]="cat">{{
+            cat.name | titlecase
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="button-container">
+        <button (click)="addFriend()" mat-raised-button>ADD</button>
+        <button (click)="back()" mat-raised-button>BACK</button>
+      </div>
+    </form>
+  </div>
+</div>

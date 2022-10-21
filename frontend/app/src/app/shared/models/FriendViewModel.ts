@@ -1,4 +1,4 @@
-import { RelationshipStatusTypes } from './models/RelationshipStatusTypes';
+import { RelationshipStatusTypes } from './RelationshipStatusTypes';
 
 export interface FriendViewModel {
   id: number;

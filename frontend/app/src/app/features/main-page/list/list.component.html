@@ -32,7 +32,9 @@
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef>
         <button mat-raised-button color="primary">EDIT</button>
-        <button mat-raised-button color="warn">DELETE</button>
+        <button (click)="deleteFriend()" mat-raised-button color="warn">
+          DELETE
+        </button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

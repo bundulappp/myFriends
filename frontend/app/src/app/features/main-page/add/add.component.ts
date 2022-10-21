@@ -36,7 +36,6 @@ export class AddComponent {
       this.friendsService
         .addNewFriend(this.form.getRawValue() as AddNewFriendRequestViewModel)
         .subscribe();
-      console.log(this.form.getRawValue());
     }
   }
 

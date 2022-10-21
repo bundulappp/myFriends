@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/core/services/friends.service';
-import { RelationshipStatusTypes } from 'src/app/shared/models/enums/RelationshipStatusTypes';
 
 @Component({
   selector: 'app-add',
@@ -10,10 +14,10 @@ import { RelationshipStatusTypes } from 'src/app/shared/models/enums/Relationshi
   styleUrls: ['./add.component.scss'],
 })
 export class AddComponent {
-  relationshipStatus = [
-    { id: RelationshipStatusTypes.Single, name: 'single' },
-    { id: RelationshipStatusTypes.In_relationship, name: 'in relationship' },
-    { id: RelationshipStatusTypes.Married, name: 'married' },
+  relationshipCategory = [
+    { id: 0, name: 'single' },
+    { id: 1, name: 'in relationship' },
+    { id: 2, name: 'married' },
   ];
 
   form = new FormGroup({
@@ -30,5 +34,25 @@ export class AddComponent {
 
   back(): void {
     this.router.navigate(['/main']);
+  }
+
+  get name(): AbstractControl {
+    return this.form.get('name') as AbstractControl;
+  }
+
+  get email(): AbstractControl {
+    return this.form.get('email') as AbstractControl;
+  }
+
+  get comment(): AbstractControl {
+    return this.form.get('comment') as AbstractControl;
+  }
+
+  get favFood(): AbstractControl {
+    return this.form.get('favFood') as AbstractControl;
+  }
+
+  get relationshipStatus(): AbstractControl {
+    return this.form.get('relationshipStatus') as AbstractControl;
   }
 }

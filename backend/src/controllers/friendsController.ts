@@ -121,7 +121,13 @@ export const friendController = {
     res: Response,
     next: NextFunction,
   ) {
-    const { friendId } = req.body;
+    const { friendId } = req.params;
+
+    if (isNaN(+friendId)) {
+      next(badRequestError('Friend id need to be a number'));
+      return;
+    }
+
     try {
       await friendService.deleteFriend(friendId);
       res.status(200).send();

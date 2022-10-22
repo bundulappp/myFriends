@@ -103,21 +103,18 @@ friendsRouter.put('', friendController.editFriend);
 
 /**
  * @swagger
- * /api/friends:
+ * /api/friends/{friendId}:
  *  delete:
  *      tags:
  *      - FRIENDS
  *      description: Delete a Friend from the list
  *      parameters:
- *          - in: body
- *            name: friendDetails
- *            description: Provide the necessary details
+ *          - in: path
+ *            name: friendId
+ *            description: ID of a friend
  *            schema:
- *              type: object
- *              properties:
- *                friendId:
- *                  type: number
- *                  example: 1
+ *              type: number
+ *              example: 1
  *      responses:
  *          200:
  *              description: Friend deleted from the list
@@ -126,6 +123,6 @@ friendsRouter.put('', friendController.editFriend);
  *          500:
  *              description: Internal server error
  */
-friendsRouter.delete('', friendController.deleteFriend);
+friendsRouter.delete('/:friendId', friendController.deleteFriend);
 
 export default friendsRouter;

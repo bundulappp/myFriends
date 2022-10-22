@@ -30,9 +30,19 @@
     </ng-container>
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef>
-        <button mat-raised-button color="primary">EDIT</button>
-        <button (click)="deleteFriend()" mat-raised-button color="warn">
+      <td mat-cell *matCellDef="let element">
+        <button
+          (click)="editFriend(element.id)"
+          mat-raised-button
+          color="primary"
+        >
+          EDIT
+        </button>
+        <button
+          (click)="deleteFriend(element.id)"
+          mat-raised-button
+          color="warn"
+        >
           DELETE
         </button>
       </td>

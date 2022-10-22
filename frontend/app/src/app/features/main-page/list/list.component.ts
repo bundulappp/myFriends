@@ -46,5 +46,11 @@ export class ListComponent implements OnInit {
     });
   }
 
-  deleteFriend(): void {}
+  deleteFriend(friendId: number): void {
+    console.log(friendId);
+  }
+
+  editFriend(friendId: number): void {
+    console.log(friendId);
+  }
 }

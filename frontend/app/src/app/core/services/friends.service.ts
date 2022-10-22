@@ -19,17 +19,30 @@ export class FriendsService {
     return this.http.get<FriendViewModel[]>(`${environment.apiUrl}/friends`);
   }
 
-  addNewFriend(newItemObject: AddNewFriendRequestViewModel): Observable<void> {
+  addNewFriend(
+    newFriendObject: AddNewFriendRequestViewModel
+  ): Observable<void> {
     return this.http
       .post<AddNewFriendRequestViewModel>(
         `${environment.apiUrl}/friends`,
-        newItemObject
+        newFriendObject
       )
       .pipe(
         tap(() => {
           this.snackBarService.showSuccessMessage(
             'Adding new friend is successful!'
           );
+        }),
+        map(() => undefined)
+      );
+  }
+
+  deleteFriend(friendId: number): Observable<void> {
+    return this.http
+      .delete<number>(`${environment.apiUrl}/friends/${friendId}`)
+      .pipe(
+        tap(() => {
+          this.snackBarService.showSuccessMessage('Your friend is deleted!');
         }),
         map(() => undefined)
       );

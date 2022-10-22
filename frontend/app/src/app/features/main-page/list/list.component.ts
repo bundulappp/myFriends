@@ -47,7 +47,7 @@ export class ListComponent implements OnInit {
   }
 
   deleteFriend(friendId: number): void {
-    console.log(friendId);
+    this.friendsService.deleteFriend(friendId).subscribe();
   }
 
   editFriend(friendId: number): void {

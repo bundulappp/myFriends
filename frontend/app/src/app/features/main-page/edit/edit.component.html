@@ -1,1 +1,63 @@
-<p>edit works!</p>
+<div class="main-container">
+  <h1 class="title">Edit Friend</h1>
+  <div class="form-container">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+        <mat-error
+          *ngIf="name.hasError('required') || name.hasError('minlength')"
+        >
+          Name is required and at least 4 char</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput />
+        <mat-error
+          *ngIf="email.hasError('required') || email.hasError('email')"
+        >
+          Must be a valid email address</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Comment</mat-label>
+        <input formControlName="comment" matInput />
+        <mat-error *ngIf="comment.hasError('maxlength')">
+          Comment can not be longer than 30 char</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="field">
+        <mat-label>Favorite food</mat-label>
+        <input formControlName="favFood" matInput />
+        <mat-error *ngIf="favFood.hasError('required')">
+          Favorite food is required</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-select
+          placeholder="Relationship Status"
+          matInput
+          [ngModel]
+          food="food"
+          formControlName="relationshipStatus"
+        >
+          <mat-option *ngFor="let cat of relationshipCategory" [value]="cat.id">
+            {{ cat.name | titlecase }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="relationshipStatus.hasError('required')">
+          Relationship status is required
+        </mat-error>
+      </mat-form-field>
+      <div class="button-container">
+        <button (click)="editFriend()" mat-raised-button>EDIT</button>
+        <button (click)="back()" mat-raised-button>BACK</button>
+      </div>
+    </form>
+  </div>
+</div>

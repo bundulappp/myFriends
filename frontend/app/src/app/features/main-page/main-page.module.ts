@@ -5,9 +5,10 @@ import { MainPageComponent } from './main-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
-  declarations: [MainPageComponent, ListComponent, AddComponent],
+  declarations: [MainPageComponent, ListComponent, AddComponent, EditComponent],
   imports: [CommonModule, MainPageRoutingModule, SharedModule],
 })
 export class MainPageModule {}

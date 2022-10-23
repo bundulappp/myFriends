@@ -73,8 +73,6 @@ export class EditComponent implements OnInit {
     }
   }
 
-  back(): void {}
-
   get name(): AbstractControl {
     return this.form.get('name') as AbstractControl;
   }

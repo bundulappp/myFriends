@@ -19,6 +19,12 @@ export class FriendsService {
     return this.http.get<FriendViewModel[]>(`${environment.apiUrl}/friends`);
   }
 
+  getFriendDetails(friendId: number): Observable<FriendViewModel> {
+    return this.http.get<FriendViewModel>(
+      `${environment.apiUrl}/friends${friendId}`
+    );
+  }
+
   addNewFriend(
     newFriendObject: AddNewFriendRequestViewModel
   ): Observable<void> {

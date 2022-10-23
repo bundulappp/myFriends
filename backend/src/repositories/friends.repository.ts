@@ -1,6 +1,6 @@
 import { OkPacket } from 'mysql';
 import { db } from '../data/connection';
-import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
+import { EditFriendRequestViewModel } from '../models/common/EditFriendRequestModel';
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 
@@ -49,7 +49,9 @@ export const friendRepository = {
     return result.insertId;
   },
 
-  async editFriendById(friendDetails: EditFriendRequestModel): Promise<void> {
+  async editFriendById(
+    friendDetails: EditFriendRequestViewModel,
+  ): Promise<void> {
     const query = `UPDATE
                 friends
               SET

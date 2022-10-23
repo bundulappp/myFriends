@@ -3,9 +3,9 @@ import { NextFunction, Request, Response } from 'express';
 import { AddFriendViewModel } from '../models/view/AddFriendViewModel';
 import { badRequestError } from '../services/generalErrorService';
 import { friendService } from '../services/friendsService';
-import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { foodService } from '../services/foodsService';
+import { EditFriendRequestViewModel } from '../models/common/EditFriendRequestModel';
 
 export const friendController = {
   async getAllFriends(
@@ -87,7 +87,7 @@ export const friendController = {
   },
 
   async editFriend(
-    req: Request<EditFriendRequestModel>,
+    req: Request<EditFriendRequestViewModel>,
     res: Response,
     next: NextFunction,
   ) {
@@ -117,7 +117,7 @@ export const friendController = {
       return;
     }
 
-    const requestData: EditFriendRequestModel = {
+    const requestData: EditFriendRequestViewModel = {
       friendId,
       name,
       email,
@@ -135,7 +135,7 @@ export const friendController = {
   },
 
   async deleteFriend(
-    req: Request<EditFriendRequestModel>,
+    req: Request<EditFriendRequestViewModel>,
     res: Response,
     next: NextFunction,
   ) {

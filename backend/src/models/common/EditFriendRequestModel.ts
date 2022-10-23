@@ -1,6 +1,6 @@
 import { RelationshipStatusTypes } from '../enums/RelationshipStatusTypes';
 
-export interface EditFriendRequestModel {
+export interface EditFriendRequestViewModel {
   friendId: number;
   name: string;
   email: string;

@@ -1,4 +1,4 @@
-import { EditFriendRequestModel } from '../models/common/EditFriendRequestModel';
+import { EditFriendRequestViewModel } from '../models/common/EditFriendRequestModel';
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 import { friendRepository } from '../repositories/friends.repository';
@@ -23,7 +23,7 @@ export const friendService = {
     return await friendRepository.addNewFriend(friendDetail);
   },
 
-  async editFriend(friendDetails: EditFriendRequestModel): Promise<void> {
+  async editFriend(friendDetails: EditFriendRequestViewModel): Promise<void> {
     await friendRepository.editFriendById(friendDetails);
   },
 

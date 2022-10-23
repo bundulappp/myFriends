@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { map, Observable, tap } from 'rxjs';
 import { AddNewFriendRequestViewModel } from 'src/app/shared/models/AddNewFriendViewModel';
 import { SnackbarService } from './snackbar.service';
+import { EditFriendRequestViewModel } from 'src/app/shared/models/EditFriendRequestViewModel';
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +39,20 @@ export class FriendsService {
           this.snackBarService.showSuccessMessage(
             'Adding new friend is successful!'
           );
+        }),
+        map(() => undefined)
+      );
+  }
+
+  editFriend(editFriendObject: EditFriendRequestViewModel): Observable<void> {
+    return this.http
+      .put<EditFriendRequestViewModel>(
+        `${environment.apiUrl}/friends`,
+        editFriendObject
+      )
+      .pipe(
+        tap(() => {
+          this.snackBarService.showSuccessMessage('Update successful!');
         }),
         map(() => undefined)
       );

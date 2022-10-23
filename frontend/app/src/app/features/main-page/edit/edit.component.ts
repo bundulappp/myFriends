@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { FriendsService } from 'src/app/core/services/friends.service';
+import { EditFriendRequestViewModel } from 'src/app/shared/models/EditFriendRequestViewModel';
 import { FriendViewModel } from 'src/app/shared/models/FriendViewModel';
 
 @Component({
@@ -54,7 +55,22 @@ export class EditComponent implements OnInit {
   }
 
   editFriend(): void {
-    console.log(this.friendDetails);
+    if (this.form.valid) {
+      const modifiedData =
+        this.form.getRawValue() as EditFriendRequestViewModel;
+      const friendId = this.friendDetails.id as number;
+
+      const friendDetails: EditFriendRequestViewModel = {
+        friendId,
+        name: modifiedData.name,
+        email: modifiedData.email,
+        comment: modifiedData.comment,
+        favFood: modifiedData.favFood,
+        relationshipStatus: modifiedData.relationshipStatus,
+      };
+
+      this.friendsService.editFriend(friendDetails).subscribe();
+    }
   }
 
   back(): void {}

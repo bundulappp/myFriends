@@ -11,6 +11,7 @@
       rgb(221, 230, 225),
       rgba(131, 177, 236, 0.473) 60%
     );
+    box-shadow: 5px 5px 30px grey;
   }
 
   .mat-column-name {
@@ -31,5 +32,22 @@
     button {
       color: rgb(81, 164, 212);
     }
+  }
+
+  .empty-list {
+    width: 50%;
+    height: 50%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background: linear-gradient(
+      45deg,
+      rgb(221, 230, 225),
+      rgba(21, 106, 218, 0.473) 60%
+    );
+    box-shadow: 5px 5px 30px grey;
   }
 }

@@ -20,6 +20,32 @@ friendsRouter.get('', friendController.getAllFriends);
 
 /**
  * @swagger
+ * /api/friends/{friendId}:
+ *  get:
+ *      tags:
+ *      - FRIENDS
+ *      description: Get a friend data
+ *      parameters:
+ *          - in: path
+ *            name: friendId
+ *            description: ID of friend
+ *            schema:
+ *              type: number
+ *              example: 1
+ *      responses:
+ *          200:
+ *              description: Listing returned
+ *          400:
+ *              description: friendId missing
+ *          404:
+ *              description: Friend not found
+ *          500:
+ *              description: Internal server error
+ */
+friendsRouter.get('/:friendId', friendController.getFriend);
+
+/**
+ * @swagger
  * /api/friends:
  *  post:
  *      tags:

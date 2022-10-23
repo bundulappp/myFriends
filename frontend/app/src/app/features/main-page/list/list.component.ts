@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/core/services/friends.service';
 import { FriendViewModel } from 'src/app/shared/models/FriendViewModel';
 
@@ -9,6 +10,7 @@ import { FriendViewModel } from 'src/app/shared/models/FriendViewModel';
 })
 export class ListComponent implements OnInit {
   friendList: FriendViewModel[] = [];
+
   columnsToDisplay = [
     'name',
     'email',
@@ -24,7 +26,7 @@ export class ListComponent implements OnInit {
     { name: 'married' },
   ];
 
-  constructor(private friendsService: FriendsService) {}
+  constructor(private friendsService: FriendsService, private router: Router) {}
 
   ngOnInit(): void {
     this.friendsService.getAllFriends().subscribe((friendList) => {
@@ -46,11 +48,15 @@ export class ListComponent implements OnInit {
     });
   }
 
-  deleteFriend(friendId: number): void {
-    this.friendsService.deleteFriend(friendId).subscribe();
+  addFriendIToQueryParams(friendId: number): void {
+    this.router.navigate(['/main/edit'], {
+      queryParams: {
+        friendId: `${friendId}`,
+      },
+    });
   }
 
-  editFriend(friendId: number): void {
-    console.log(friendId);
+  deleteFriend(friendId: number): void {
+    this.friendsService.deleteFriend(friendId).subscribe();
   }
 }

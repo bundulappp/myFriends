@@ -21,6 +21,24 @@ export const friendController = {
     }
   },
 
+  async getFriend(
+    req: Request,
+    res: Response<FriendDomainModel>,
+    next: NextFunction,
+  ) {
+    const { friendId } = req.params;
+
+    if (isNaN(+friendId))
+      return next(badRequestError('friendId needs to be a number!'));
+
+    try {
+      const result = await friendService.getFriendById(+friendId);
+      res.status(200).send(result);
+    } catch (err) {
+      next(err);
+    }
+  },
+
   async addNewFriend(
     req: Request<AddFriendRequestViewModel>,
     res: Response<AddFriendViewModel>,

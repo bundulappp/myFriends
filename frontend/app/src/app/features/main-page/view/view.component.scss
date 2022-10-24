@@ -54,7 +54,11 @@
       justify-content: space-between;
 
       .icon {
+        cursor: pointer;
         transform: scale(2);
+      }
+      .icon:hover {
+        transform: scale(3);
       }
     }
   }

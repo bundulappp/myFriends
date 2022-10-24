@@ -7,15 +7,22 @@
       />
     </div>
     <div class="details">
-      <h1>Lorem ipsum dolor sit amet</h1>
-      <h2>Lorem, ipsum dolor.</h2>
-      <h4>Lorem ipsum dolor sit amet.</h4>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <h1>{{ friendDetails.name }}</h1>
+      <h2>{{ friendDetails.email }}</h2>
+      <h4>{{ friendDetails.comment }}</h4>
+      <p>Favorite Food: {{ friendDetails.favFood }}</p>
     </div>
     <div class="actions">
-      <mat-icon class="icon">person_add</mat-icon>
+      <mat-icon
+        *ngIf="
+          friendDetails.relationshipStatus === 1 ||
+          friendDetails.relationshipStatus === 2
+        "
+        class="icon"
+        >person_add</mat-icon
+      >
       <br />
-      <mat-icon class="icon">keyboard_return</mat-icon>
+      <mat-icon routerLink="/main/list" class="icon">keyboard_return</mat-icon>
     </div>
   </div>
 </div>

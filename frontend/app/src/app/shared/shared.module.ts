@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -27,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatTooltipModule,
   ],
   exports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatTooltipModule,
   ],
 })
 export class SharedModule {}

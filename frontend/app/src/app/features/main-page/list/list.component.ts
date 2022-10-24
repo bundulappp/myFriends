@@ -48,7 +48,7 @@ export class ListComponent implements OnInit {
     });
   }
 
-  addFriendIToQueryParams(friendId: number): void {
+  navigateToEdit(friendId: number): void {
     this.router.navigate(['/main/edit'], {
       queryParams: {
         friendId: `${friendId}`,

@@ -37,10 +37,7 @@
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
         <button mat-stroked-button>VIEW</button>
-        <button
-          (click)="addFriendIToQueryParams(element.id)"
-          mat-stroked-button
-        >
+        <button (click)="navigateToEdit(element.id)" mat-stroked-button>
           EDIT
         </button>
         <button

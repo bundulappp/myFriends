@@ -56,6 +56,14 @@ export class ListComponent implements OnInit {
     });
   }
 
+  navigateToView(friendId: number): void {
+    this.router.navigate(['/main/view'], {
+      queryParams: {
+        friendId: `${friendId}`,
+      },
+    });
+  }
+
   deleteFriend(friendId: number): void {
     this.friendsService.deleteFriend(friendId).subscribe();
   }

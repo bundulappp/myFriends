@@ -28,7 +28,6 @@
   .empty-list {
     width: 50%;
     height: 50%;
-    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,5 +40,11 @@
     );
     box-shadow: 5px 5px 30px grey;
     opacity: 0.9;
+
+    button {
+      font-size: large;
+      font-weight: bolder;
+      border: 1px solid black;
+    }
   }
 }

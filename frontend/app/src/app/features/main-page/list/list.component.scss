@@ -16,9 +16,16 @@
     background: linear-gradient(
       45deg,
       rgb(235, 182, 118),
-      rgb(133, 126, 120) 60%
+      rgb(194, 189, 184) 60%
     );
+    opacity: 0.9;
     box-shadow: 5px 5px 30px grey;
+
+    button {
+      font-size: medium;
+      font-weight: bolder;
+      border: 1px solid black;
+    }
   }
 
   .mat-column-name {

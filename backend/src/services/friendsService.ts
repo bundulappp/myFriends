@@ -13,7 +13,7 @@ export const friendService = {
     const friend = await friendRepository.getFriendById(friendId);
 
     if (!friend) {
-      throw notFoundError('Cannot edit friend, friendId not found in db!');
+      throw notFoundError('FriendId not found in db!');
     }
 
     return friend;
@@ -24,6 +24,12 @@ export const friendService = {
   },
 
   async editFriend(friendDetails: EditFriendRequestViewModel): Promise<void> {
+    const friend = await friendRepository.getFriendById(friendDetails.friendId);
+
+    if (!friend) {
+      throw notFoundError('FriendId not found in db!');
+    }
+
     await friendRepository.editFriendById(friendDetails);
   },
 

@@ -17,11 +17,11 @@
     background: linear-gradient(
       45deg,
       rgb(235, 182, 118),
-      rgb(133, 126, 120) 60%
+      rgb(194, 189, 184) 60%
     );
     border-radius: 20px;
     box-shadow: 5px 5px 30px grey;
-
+    opacity: 0.9;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -29,6 +29,11 @@
     .field {
       width: 100%;
       height: 18%;
+
+      .label {
+        color: black;
+        font-weight: bolder;
+      }
     }
 
     .button-container {
@@ -41,6 +46,9 @@
 
       button {
         margin-top: 30px;
+        font-size: large;
+        font-weight: bolder;
+        border: 1px solid black;
       }
     }
   }

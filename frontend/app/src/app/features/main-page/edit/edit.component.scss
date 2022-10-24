@@ -6,16 +6,21 @@
   align-items: center;
   flex-direction: column;
 
+  background-image: url("../../../../assets/pexels-belle-co-1000444.jpg");
+  background-size: cover;
+  background-position: center;
+
   .form-container {
     width: 30%;
     height: 55%;
     padding-top: 30px;
     background: linear-gradient(
       45deg,
-      rgb(221, 230, 225),
-      rgba(21, 106, 218, 0.473) 60%
+      rgb(235, 182, 118),
+      rgb(133, 126, 120) 60%
     );
     border-radius: 20px;
+    box-shadow: 5px 5px 30px grey;
 
     display: flex;
     align-items: center;

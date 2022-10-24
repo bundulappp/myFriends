@@ -1,37 +1,28 @@
 .main-container {
   width: 100vw;
   height: 100vh;
-  padding: 100px;
+
+  background-image: url("../../../../assets/pexels-belle-co-1000444.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .table {
     padding-top: 20px;
-    width: 80%;
+    width: 55%;
     background: linear-gradient(
       45deg,
-      rgb(221, 230, 225),
-      rgba(131, 177, 236, 0.473) 60%
+      rgb(235, 182, 118),
+      rgb(133, 126, 120) 60%
     );
     box-shadow: 5px 5px 30px grey;
   }
 
   .mat-column-name {
     font-style: italic;
-  }
-
-  .mat-column-actions {
-    button {
-      margin-right: 10px;
-    }
-  }
-
-  .button-container {
-    width: 10%;
-    height: 10%;
-    padding-top: 20px;
-
-    button {
-      color: rgb(81, 164, 212);
-    }
   }
 
   .empty-list {
@@ -45,9 +36,10 @@
     border-radius: 20px;
     background: linear-gradient(
       45deg,
-      rgb(221, 230, 225),
-      rgba(21, 106, 218, 0.473) 60%
+      rgb(235, 182, 118),
+      rgb(133, 126, 120) 60%
     );
     box-shadow: 5px 5px 30px grey;
+    opacity: 0.9;
   }
 }

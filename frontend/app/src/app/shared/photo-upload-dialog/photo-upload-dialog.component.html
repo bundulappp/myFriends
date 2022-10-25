@@ -1,1 +1,18 @@
-<p>photo-upload-dialog works!</p>
+<div class="main-container">
+  <p>Please add a valid photo url</p>
+  <br />
+  <input [(ngModel)]="photoUrl" />
+  <div class="action-container">
+    <br />
+    <mat-icon matTooltip="Back" class="icon">keyboard_return</mat-icon>
+    <mat-icon
+      confirm
+      mat-button
+      mat-dialog-close
+      (click)="editPhoto()"
+      matTooltip="Change photo"
+      class="icon"
+      >add</mat-icon
+    >
+  </div>
+</div>

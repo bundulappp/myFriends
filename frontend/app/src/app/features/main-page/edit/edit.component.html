@@ -56,15 +56,15 @@
         </mat-error>
       </mat-form-field>
       <div class="button-container">
+        <mat-icon matTooltip="Back to list" routerLink="/main/list" class="icon"
+          >keyboard_return</mat-icon
+        >
         <mat-icon
           routerLink="/main/list"
           (click)="editFriend()"
           matTooltip="Edit"
           class="icon"
           >add</mat-icon
-        >
-        <mat-icon matTooltip="Back to list" routerLink="/main/list" class="icon"
-          >keyboard_return</mat-icon
         >
       </div>
     </form>

@@ -6,6 +6,7 @@ import { friendService } from '../services/friendsService';
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { foodService } from '../services/foodsService';
 import { EditFriendRequestViewModel } from '../models/common/EditFriendRequestModel';
+import { EditFriendPhotoRequestViewModel } from '../models/view/EditFriendPhotoRequestViewModel';
 
 export const friendController = {
   async getAllFriends(
@@ -128,6 +129,30 @@ export const friendController = {
 
     try {
       await friendService.editFriend(requestData);
+      res.status(200).send();
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  async editFriendPhoto(
+    req: Request<EditFriendPhotoRequestViewModel>,
+    res: Response,
+    next: NextFunction,
+  ) {
+    const { friendId, photoUrl } = req.body;
+
+    if (!friendId || !photoUrl) {
+      return next(badRequestError('friendId and photoUrl are all mandatory.'));
+    }
+
+    const requestData: EditFriendPhotoRequestViewModel = {
+      friendId,
+      photoUrl,
+    };
+
+    try {
+      await friendService.editFriendPhoto(requestData);
       res.status(200).send();
     } catch (err) {
       next(err);

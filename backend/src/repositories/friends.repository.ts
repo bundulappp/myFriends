@@ -79,7 +79,7 @@ export const friendRepository = {
     const query = `UPDATE
                 friends
               SET
-                photoUrl=?,
+                photoUrl=?
               WHERE
                 id=?`;
     await db.query<void>(query, [

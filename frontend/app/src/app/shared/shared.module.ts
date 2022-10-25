@@ -12,9 +12,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PhotoUploadDialogComponent } from './photo-upload-dialog/photo-upload-dialog.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, PhotoUploadDialogComponent],
   imports: [
     CommonModule,
     RouterModule,

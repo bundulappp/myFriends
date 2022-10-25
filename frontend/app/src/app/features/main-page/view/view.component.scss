@@ -12,7 +12,7 @@
   .card {
     padding-top: 20px;
     width: 20vw;
-    height: 50vh;
+    height: 55vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -47,12 +47,11 @@
     }
 
     .actions {
-      width: 30%;
+      width: 80%;
       height: 20%;
-      padding-top: 20px;
       display: flex;
       justify-content: space-between;
-
+      align-items: flex-end;
       .icon {
         cursor: pointer;
         transform: scale(2);

@@ -3,6 +3,7 @@ import { db } from '../data/connection';
 import { EditFriendRequestViewModel } from '../models/common/EditFriendRequestModel';
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
+import { EditFriendPhotoRequestViewModel } from '../models/view/EditFriendPhotoRequestViewModel';
 
 export const friendRepository = {
   async getAllFriends(): Promise<FriendDomainModel[]> {
@@ -68,6 +69,21 @@ export const friendRepository = {
       friendDetails.comment,
       friendDetails.favFood,
       friendDetails.relationshipStatus.toString(),
+      friendDetails.friendId.toString(),
+    ]);
+  },
+
+  async editFriendPhotoUrlById(
+    friendDetails: EditFriendPhotoRequestViewModel,
+  ): Promise<void> {
+    const query = `UPDATE
+                friends
+              SET
+                photoUrl=?,
+              WHERE
+                id=?`;
+    await db.query<void>(query, [
+      friendDetails.photoUrl,
       friendDetails.friendId.toString(),
     ]);
   },

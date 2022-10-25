@@ -151,4 +151,36 @@ friendsRouter.put('', friendController.editFriend);
  */
 friendsRouter.delete('/:friendId', friendController.deleteFriend);
 
+/**
+ * @swagger
+ * /api/friends/photo:
+ *  put:
+ *      tags:
+ *      - FRIENDS
+ *      description: Edit a friend photo
+ *      parameters:
+ *          - in: body
+ *            name: friendData
+ *            description: Provide the details of the friend you'd like to edit
+ *            schema:
+ *              type: object
+ *              properties:
+ *                friendId:
+ *                  type: number
+ *                  example: 1
+ *                photoUrl:
+ *                  type: string
+ *                  example: https://media.istockphoto.com/photos/barbary-macaque-picture-id824860820?k=20&m=824860820&s=612x612&w=0&h=W8783ZGcqMfDMJoXvBAyDFcSjnOWdKqKhgLGvf-VIuU=
+ *      responses:
+ *          200:
+ *              description: Edited
+ *          400:
+ *              description: Bad request
+ *          404:
+ *              description: Not found
+ *          500:
+ *              description: Internal server error
+ */
+friendsRouter.put('/photo', friendController.editFriendPhoto);
+
 export default friendsRouter;

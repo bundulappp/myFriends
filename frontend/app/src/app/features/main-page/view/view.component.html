@@ -13,6 +13,9 @@
       <p>Favorite Food: {{ friendDetails.favFood }}</p>
     </div>
     <div class="actions">
+      <mat-icon matTooltip="back to list" routerLink="/main/list" class="icon"
+        >keyboard_return</mat-icon
+      >
       <mat-icon
         matTooltip="Add a pair to your friend"
         *ngIf="
@@ -23,9 +26,6 @@
         >person_add</mat-icon
       >
       <br />
-      <mat-icon matTooltip="back to list" routerLink="/main/list" class="icon"
-        >keyboard_return</mat-icon
-      >
     </div>
   </div>
 </div>

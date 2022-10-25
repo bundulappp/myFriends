@@ -36,19 +36,25 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
-        <button (click)="navigateToView(element.id)" mat-stroked-button>
-          VIEW
-        </button>
-        <button (click)="navigateToEdit(element.id)" mat-stroked-button>
-          EDIT
-        </button>
-        <button
-          (click)="deleteFriend(element.id)"
-          mat-stroked-button
-          color="warn"
+        <mat-icon
+          (click)="navigateToView(element.id)"
+          matTooltip="View"
+          class="icon"
+          >portrait</mat-icon
         >
-          DELETE
-        </button>
+        <mat-icon
+          (click)="navigateToEdit(element.id)"
+          matTooltip="Edit"
+          class="icon"
+          >mode_edit</mat-icon
+        >
+        <mat-icon
+          (click)="deleteFriend(element.id)"
+          matTooltip="Delete"
+          class="icon"
+        >
+          delete_sweep</mat-icon
+        >
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
@@ -57,6 +63,8 @@
   <div *ngIf="friendList.length === 0" class="empty-list">
     <h1>Please add your first friend! :)</h1>
     <br />
-    <button routerLink="/main/add" mat-stroked-button>Let's do it!</button>
+    <mat-icon routerLink="/main/add" matTooltip="Add" class="icon"
+      >add</mat-icon
+    >
   </div>
 </div>

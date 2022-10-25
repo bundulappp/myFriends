@@ -11,7 +11,6 @@
   align-items: center;
 
   .table {
-    padding-top: 20px;
     width: 55%;
     background: linear-gradient(
       45deg,
@@ -21,21 +20,26 @@
     opacity: 0.9;
     box-shadow: 5px 5px 30px grey;
     font-weight: 500;
-
-    button {
-      font-size: medium;
-      font-weight: bolder;
-      border: 1px solid black;
-    }
   }
 
   .mat-column-name {
     font-style: italic;
   }
 
+  .mat-column-actions {
+    .icon {
+      cursor: pointer;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .icon:hover {
+      transform: scale(2);
+    }
+  }
+
   .empty-list {
     width: 50%;
-    height: 50%;
+    height: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,10 +53,12 @@
     box-shadow: 5px 5px 30px grey;
     opacity: 0.9;
 
-    button {
-      font-size: large;
-      font-weight: bolder;
-      border: 1px solid black;
+    .icon {
+      cursor: pointer;
+      transform: scale(2);
+    }
+    .icon:hover {
+      transform: scale(3);
     }
   }
 }

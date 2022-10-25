@@ -18,7 +18,7 @@ exports.up = function (db) {
   return db.addColumn('friends', 'photoUrl', {
     type: 'string',
     notNull: true,
-    defaultValue: '../../../../assets/pexels-thgusstavo-santana-1933873.jpg',
+    defaultValue: '../../../../assets/Screenshot_30.png',
   });
 };
 

@@ -7,4 +7,5 @@ export interface FriendDomainModel {
   comment: string;
   favFood: string;
   relationshipStatus: RelationshipStatusTypes;
+  photoUrl: string;
 }

@@ -7,4 +7,5 @@ export interface FriendViewModel {
   comment?: string;
   favFood: string;
   relationshipStatus: RelationshipStatusTypes | string;
+  photoUrl: string;
 }

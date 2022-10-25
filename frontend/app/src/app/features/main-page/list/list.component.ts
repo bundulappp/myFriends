@@ -41,6 +41,7 @@ export class ListComponent implements OnInit {
           favFood: x.favFood,
           relationshipStatus:
             this.relationshipCategory[x.relationshipStatus as number].name,
+          photoUrl: x.photoUrl,
         };
         modifiedFriendList.push(modifiedFriend);
       });

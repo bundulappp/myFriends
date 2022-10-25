@@ -39,10 +39,6 @@ export class AddComponent {
     }
   }
 
-  back(): void {
-    this.router.navigate(['/main']);
-  }
-
   get name(): AbstractControl {
     return this.form.get('name') as AbstractControl;
   }

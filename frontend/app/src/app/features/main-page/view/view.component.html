@@ -1,7 +1,13 @@
 <div class="main-container">
   <div class="card">
     <div *ngIf="friendDetails" class="img-container">
-      <img (click)="openDialog()" [src]="friendDetails.photoUrl" alt="" />
+      <img
+        matTooltip="Change your friend avatar"
+        matTooltipPosition="right"
+        (click)="openDialog()"
+        [src]="friendDetails.photoUrl"
+        alt=""
+      />
     </div>
     <div *ngIf="friendDetails" class="details">
       <h1>{{ friendDetails.name }}</h1>

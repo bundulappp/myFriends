@@ -3,7 +3,7 @@
     <div class="img-container">
       <img src="../../../../assets/Screenshot_30.png" alt="" />
     </div>
-    <div class="details">
+    <div *ngIf="friendDetails" class="details">
       <h1>{{ friendDetails.name }}</h1>
       <h2>{{ friendDetails.email }}</h2>
       <h4>{{ friendDetails.comment }}</h4>

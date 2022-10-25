@@ -18,11 +18,11 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe((params) => {
-      this.init(Number(params.get('friendId')));
+      this.loadFriendDetails(Number(params.get('friendId')));
     });
   }
 
-  init(friendId: number): void {
+  loadFriendDetails(friendId: number): void {
     this.friendsService.getFriendDetails(friendId).subscribe((x) => {
       this.friendDetails = x;
     });

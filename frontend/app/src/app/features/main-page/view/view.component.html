@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="card">
     <div class="img-container">
-      <img src="../../../../assets/Screenshot_30.png" alt="" />
+      <img [src]="friendDetails.photoUrl" alt="" />
     </div>
     <div *ngIf="friendDetails" class="details">
       <h1>{{ friendDetails.name }}</h1>

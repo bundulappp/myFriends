@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PhotoUploadDialogComponent } from './photo-upload-dialog/photo-upload-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [HeaderComponent, PhotoUploadDialogComponent],
@@ -30,6 +31,7 @@ import { PhotoUploadDialogComponent } from './photo-upload-dialog/photo-upload-d
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatDialogModule,
   ],
   exports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { PhotoUploadDialogComponent } from './photo-upload-dialog/photo-upload-d
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatDialogModule,
   ],
 })
 export class SharedModule {}

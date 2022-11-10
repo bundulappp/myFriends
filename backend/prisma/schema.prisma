@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model foods {
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(255)
+  friendId Int     @db.UnsignedInt
+  friends  friends @relation(fields: [friendId], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "foods_friendId_fk")
+
+  @@index([friendId], map: "foods_friendId_fk")
+}
+
+model friends {
+  id                 Int     @id @default(autoincrement()) @db.UnsignedInt
+  name               String  @db.VarChar(255)
+  email              String  @db.VarChar(255)
+  comment            String  @db.VarChar(255)
+  favFood            String  @db.VarChar(255)
+  relationshipStatus Int
+  photoUrl           String  @default("../../../../assets/Screenshot_30.png") @db.VarChar(255)
+  foods              foods[]
+}
+
+model migrations {
+  id     Int      @id @default(autoincrement())
+  name   String   @db.VarChar(255)
+  run_on DateTime @db.DateTime(0)
+}

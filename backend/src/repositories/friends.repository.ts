@@ -4,14 +4,13 @@ import { EditFriendRequestViewModel } from '../models/common/EditFriendRequestMo
 import { FriendDomainModel } from '../models/domain/FriendDomainModel';
 import { AddFriendRequestViewModel } from '../models/view/AddFriendRequestViewModel';
 import { EditFriendPhotoRequestViewModel } from '../models/view/EditFriendPhotoRequestViewModel';
+import { PrismaClient } from '@prisma/client';
+
+const prisma: PrismaClient = new PrismaClient();
 
 export const friendRepository = {
   async getAllFriends(): Promise<FriendDomainModel[]> {
-    const query = `SELECT * 
-                 FROM
-                  friends`;
-
-    return await db.query<FriendDomainModel[]>(query);
+    return await prisma.friends.findMany();
   },
 
   async getFriendById(friendId: number): Promise<FriendDomainModel> {
@@ -20,11 +19,9 @@ export const friendRepository = {
               friends
             WHERE
               id=?`;
-
     const friendList = await db.query<FriendDomainModel[]>(query, [
       friendId.toString(),
     ]);
-
     return friendList[0];
   },
 
